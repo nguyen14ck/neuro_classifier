@@ -52,18 +52,7 @@ import neuro.core.*;
 public class senti_classify
 {
 	//Network parameters
-//	private static double		learningRate = 0.1;
-//	private static double		momentum = 0.0;
-//	private static  double		sigmoidAlphaValue = 2.0;
-//	private static double		learningErrorLimit = 0.1;
-//	private static int			sigmoidType = 0;
-//
-//	
-//	private static int inputsCount = 5; //input for first layer
-//	private static int [] neuronsCount = {5,5,2}; //layersCount = neuronsCount.length; previous layer is input for next layer
-//	private static double [][][] weights = {{},{},{}}; //store weight for 2nd epock, and for testing
-//	private static double [][][] biases = {{},{},{}};
-	// iterations (training epochs)
+
 	private static int iteration = 0;
 	private static int path_index = 0; //indicate temporary path to store weights 
 	
@@ -88,28 +77,7 @@ public class senti_classify
 
 
 
-	protected void setup(Context context) throws IOException, InterruptedException 
-    {
-		//average = getAveragePostsPerUser(context.getConfiguration());
-		//mos = new MultipleOutputs<Text, Text>(context);
-//		Path[] files = DistributedCache.getLocalCacheFiles(context.getConfiguration());
-//		// Read all files in the DistributedCache
-//		for (Path p : files) 
-//		{
-//		    BufferedReader rdr = new BufferedReader(new InputStreamReader(new GZIPInputStream(new FileInputStream(new File(p.toString())))));
-//		    String line;
-//		    // For each record in the user file
-//		    while ((line = rdr.readLine()) != null) 
-//		    {
-//		        // Get the user ID and reputation
-//		        Map<String, String> parsed = MRDPUtils.transformXmlToMap(line);
-//		        // Map the user ID to the reputation
-//		        userIdToReputation.put(parsed.get("Id"),parsed.get("Reputation"));
-//		    }
-//		    
-////		    ChainMapper.addMapper(
-//		}
-}
+
 
 	//
 	//MAP_TRAINING
@@ -175,23 +143,7 @@ public class senti_classify
 				weights = new double [neuronsCount.length][dim_max][dim_max];
 		    	biases =  new double [neuronsCount.length][dim_max][dim_max]; 
 		    	
-//		    	input_string = temp_string;
-//		    	input_string = context.getInputSplit().toString();
-		    	
-//				String [] input_array = input_string.split("[/]");
-//				input_string = "";
-//				for (int i=1; i< input_array.length-1; i++)
-//				{
-//					input_string += "/" + input_array[i];
-//				}
-				
-//		    	String [] input_array = input_string.split(".txt");
-//				input_string = input_array[0];
-//		    	input_array = input_string.split("file:");
-//		    	if (input_array.length > 1)
-//		    	{
-//		    		input_string = input_array[1];
-//		    	}
+
 				
 		    	
 		    	input_string = conf.get("temp_string");
@@ -205,18 +157,7 @@ public class senti_classify
 				
 				fst = FileSystem.get(conf);
 				
-//				String odd = conf.get("epochs");
-//				if (odd.equals("0"))
-//				{
-//					common_path = new Path(input_string + "_temp2/part-r-00000");
-//					common_folder = new Path(input_string + "_temp2");
-//				}
-//				else
-//				{
-//					common_path = new Path(input_string + "_temp1/part-r-00000");
-//					common_folder = new Path(input_string + "_temp1");
-//				}
-				
+			
 				
 				if(fst.exists(input_temp_1))
 			    {
@@ -265,29 +206,6 @@ public class senti_classify
 									BufferedReader br=new BufferedReader(new InputStreamReader(fst.open(status.getPath())));	
 							
 							
-							
-		  					//READ ONE FILE
-//	                        Path pt= new Path("file:///home/cloudera/workspace/mre" + inPath_temp_2.toString());
-//		  					Path pt= new Path("input.txt");
-//		  					Path pt = new Path("part-r-00000");
-//		  					Path pt = new Path(inPath_temp_2.toString() + "/part-r-00000");
-//		  					Path pt = new Path(System.getProperty("user.dir") + "/output_tmp_2/part-r-00000");
-		  					
-//		  					Class cls = Class.forName("STC2");
-//		  				    ClassLoader cLoader = cls.getClassLoader();
-//		  					URL url = cLoader.getResource("part-r-00000");
-		  					
-		  					
-//	                        FileSystem fst = FileSystem.get(context.getConfiguration());
-//	                        FileSystem fst = FileSystem.get(new Configuration());
-//	                        String abc = System.getProperty("user.dir");
-//	                        File file = new File(System.getProperty("user.dir") + "/output_tmp_2/part-r-00000");
-	                        
-//	                        BufferedReader br = new BufferedReader(new InputStreamReader(fst.open(common_path)));	
-//	                        String file_name = System.getProperty("user.dir") + "/" + inPath_temp_2.toString() + "/part-r-00000";
-//	                        BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.dir") + "/" + inPath_temp_2.toString() + "/part-r-00000"));
-//	                        BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.dir") + "/part-r-00000"));
-	                        
 	                     
 	                        
 						            String line;
@@ -419,150 +337,7 @@ public class senti_classify
 		    {
 		    	
 		    	
-//		    	if (iteration > 1)
-//			  	{
-//		    		
-//					
-//			  		if (path_index == 1)
-//			  		{
-//			  			try
-//			  			{
-//			  				
-//			  					
-//			  				
-//			  				
-////		                        Path pt= new Path("file:///home/cloudera/workspace/mre" + inPath_temp_2.toString());
-////			  					Path pt= new Path("input.txt");
-////			  					Path pt = new Path("part-r-00000");
-//			  					Path pt = new Path(inPath_temp_2.toString() + "/part-r-00000");
-////			  					Path pt = new Path(System.getProperty("user.dir") + "/output_tmp_2/part-r-00000");
-//			  					
-////			  					Class cls = Class.forName("STC2");
-////			  				    ClassLoader cLoader = cls.getClassLoader();
-////			  					URL url = cLoader.getResource("part-r-00000");
-//			  					
-//			  					
-//		                        FileSystem fst = FileSystem.get(context.getConfiguration());
-////		                        FileSystem fst = FileSystem.get(new Configuration());
-////		                        String abc = System.getProperty("user.dir");
-////		                        File file = new File(System.getProperty("user.dir") + "/output_tmp_2/part-r-00000");
-//		                        
-//		                        BufferedReader br=new BufferedReader(new InputStreamReader(fst.open(pt)));	
-////		                        String file_name = System.getProperty("user.dir") + "/" + inPath_temp_2.toString() + "/part-r-00000";
-////		                        BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.dir") + "/" + inPath_temp_2.toString() + "/part-r-00000"));
-////		                        BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.dir") + "/part-r-00000"));
-//		                        
-//		                        
-//		                        String line;
-//		                        line=br.readLine();
-//		                        
-//		                        while (line != null)
-//		                        {	
-//		                        	String [] str_line = line.split("\t");
-//		                        	String [] str_index = str_line[0].split("_");
-//		                        	String [] str_kval =  str_line[1].split("_");
-//		                        	
-//		                        	int layer = Integer.valueOf(str_index[1]);
-//		                        	int neuron = Integer.valueOf(str_index[2]);
-//		                        	int wi = Integer.valueOf(str_index[3]);
-//		                        	double wgt = Double.valueOf(str_kval[0]);
-//		                        	double bias = Double.valueOf(str_kval[1]);
-//			                        
-//		                        	weights[layer][neuron][wi] = wgt;
-//		                        	biases[layer][neuron][wi] = bias;
-//		                        	
-//		                            System.out.println("Training ReadIn from 2: " + line);
-//		                            line=br.readLine();
-//		                            line=br.readLine();
-//		                        }
-//			  			}
-//			  			catch(Exception e)
-//			            {
-//			  				
-//			            }
-//			  		//initialize slave network
-////					network = new ActivationNetwork (new SigmoidFunction(sigmoidAlphaValue), inputsCount, neuronsCount, weights, biases); //use constructor for training (with pre-set weights)
-//			  		network = new ActivationNetwork (new BipolarSigmoidFunction(sigmoidAlphaValue), inputsCount, neuronsCount, weights, biases); //use constructor for training (with pre-set weights)
-//			  		trainner = new BackPropagationLearning( network, learningRate, momentum);
-//			  			
-//			  		}
-//			  		else
-//			  		{
-//			  			try
-//			  			{
-////			  				Path pt= new Path("file:///home/cloudera/workspace/mre" + inPath_temp_1.toString());
-////		  					Path pt= new Path("input.txt");
-////		  					Path pt = new Path("part-r-00000");
-//		  					Path pt = new Path(inPath_temp_1.toString() + "/part-r-00000");
-////		  					Path pt = new Path(System.getProperty("user.dir") + "/output_tmp_1/part-r-00000");
-//		  					
-////		  					Class cls = Class.forName("STC2");
-////		  				    ClassLoader cLoader = cls.getClassLoader();
-////		  					URL url = cLoader.getResource("part-r-00000");
-//		  					
-//		  					
-//	                        FileSystem fst = FileSystem.get(context.getConfiguration());
-////	                        FileSystem fst = FileSystem.get(new Configuration());
-////	                        String abc = System.getProperty("user.dir");
-////	                        File file = new File(System.getProperty("user.dir") + "/output_tmp_1/part-r-00000");
-//	                        
-//	                        BufferedReader br=new BufferedReader(new InputStreamReader(fst.open(pt)));		  
-////	                        String file_name = System.getProperty("user.dir") + "/" + inPath_temp_2.toString() + "/part-r-00000";
-////	                        BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.dir") + "/" + inPath_temp_1.toString() + "/part-r-00000"));
-////	                        BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.dir") + "/part-r-00000"));
-//	                        
-//	                        
-//	                        String line;
-//	                        line=br.readLine();
-//	                        
-//	                        
-//	                        
-//	                        while (line != null)
-//	                        {	
-//	                        	String [] str_line = line.split("\t");
-//	                        	String [] str_index = str_line[0].split("_");
-//	                        	String [] str_kval =  str_line[1].split("_");
-//	                        	
-//	                        	int layer = Integer.valueOf(str_index[1]);
-//	                        	int neuron = Integer.valueOf(str_index[2]);
-//	                        	int wi = Integer.valueOf(str_index[3]);
-//	                        	double wgt = Double.valueOf(str_kval[0]);
-//	                        	double bias = Double.valueOf(str_kval[1]);
-//		                        
-//	                        	weights[layer][neuron][wi] = wgt;
-//	                        	biases[layer][neuron][wi] = bias;
-//	                        	
-//	                        	System.out.println("Training ReadIn from 1: " + line);
-//	                            line=br.readLine();
-//	                            line=br.readLine();
-//	                        }
-//	                        
-//	                        
-//			  			}
-//			  			catch(Exception e)
-//			            {
-//			  				
-//			            }
-//			  			
-//			  		//initialize slave network
-////					network = new ActivationNetwork (new SigmoidFunction(sigmoidAlphaValue), inputsCount, neuronsCount, weights, biases); //use constructor for training (with pre-set weights)
-//				  	network = new ActivationNetwork (new BipolarSigmoidFunction(sigmoidAlphaValue), inputsCount, neuronsCount, weights, biases); //use constructor for training (with pre-set weights)
-//					trainner = new BackPropagationLearning( network, learningRate, momentum);
-//			  		}
-//			  	}
-//		    	else
-//		    	{
-//		    		//initialize slave network with random weights
-////					network = new ActivationNetwork (new SigmoidFunction(sigmoidAlphaValue), inputsCount, neuronsCount); //use constructor for training (without pre-set weights)
-//		    		network = new ActivationNetwork (new BipolarSigmoidFunction(sigmoidAlphaValue), inputsCount, neuronsCount); //use constructor for training (without pre-set weights)
-//					trainner = new BackPropagationLearning( network, learningRate, momentum);
-//		    	}
-					
-				
-		    	
-//		    	while (cont)
-//		    	{
-		    	// each time, mapper read 1 line of csv file content
+
 		    	 
 			      String [] pval = value.toString().trim().split("[ \t]+");
 //			      String [] pval = value.toString().split("\t");
@@ -678,34 +453,6 @@ public class senti_classify
 		    	
 		    	
 		    	
-		    	
-//		    	for (int i=0, l=network.layersCount; i<l; i++)
-//				{
-//					for (int j=0, n=network.layers[i].neuronsCount; j<n; j++)
-//														
-//					{
-//						for (int k=0, w=network.layers[i].neurons[j].inputsCount; k<w; k++)
-//						{
-//
-//							double wgt = network.layers[i].neurons[j].weights[k];
-//							double bias = network.layers[i].neurons[j].bias;
-////							double bias = 0;
-//							String vtext = String.valueOf(count) + "_" + String.valueOf(wgt) + "_" + String.valueOf(error) + "_" + String.valueOf(bias);
-//							out_val.set(vtext);
-//							
-////							String ktext = String.valueOf(c2) + "_" + String.valueOf(i) + "_" + String.valueOf(j);
-//							String ktext = "w_" + String.valueOf(i) + "_" + String.valueOf(j) + "_" + String.valueOf(k);
-//							out_key.set(ktext);
-//							
-//							context.write(out_key, out_val);
-//							System.out.println("Map: " + ktext + "  " + vtext);
-//							
-//						}
-//						
-//						
-//					}
-//					
-//				}
 
 
 		    } //end map function
@@ -724,75 +471,7 @@ public class senti_classify
 	  public static class Reduce_Training extends Reducer<Text,Text,Text,Text>
 	  {
 
-//	    private IntWritable result = new IntWritable();
-//
-//	    public static final String SLAVES_COUNTER_NAME = "Groups";
-//
-//	    public void reduce(Text key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException
-//	    {
-//	      int sum = 0; // initialize the sum for each keyword => outputvalue
-//	      			  // resuse key of mapper output
-//
-//	      for (IntWritable val : values)
-//	      {
-//	        sum += val.get();
-//	      }
-//	      result.set(sum);
-//
-//	      context.write(key, result); // create a pair <keyword, number of occurences>
-//
-//
-//	    }
-		  
-		  
-		  
-	    
-//		private Text result = new Text();
-//	    public static final String SLAVES_COUNTER_NAME = "Groups";
-//
-//	    public void reduce(Text key,  Iterable<Text> values, Context context) throws IOException, InterruptedException
-//	    {
-//	    	  
-////		initialize the sum for each keyword => outputvalue
-////	    resuse key of mapper output
-//	    	double wgt;
-//	    	int count;
-//	    	double error;
-//	    	double sum_count = 0;
-//	    	double sum_wgt = 0;
-//	    	double avg = 0;
-//	      for (Text val : values)
-//	      {
-//	    	  String [] pval = val.toString().split("_");
-//	    	  if (pval.length <= 1)
-//	    	  {
-//						while (context.nextKeyValue())
-//						{
-//							sum_count = 0;
-//						}
-//						return;
-//	    	  }
-//	    		  
-//	    	  
-//	    	  count = Integer.valueOf(pval[0]);
-//	    	  wgt = Double.valueOf(pval[1]);
-//	    	  error = Double.valueOf(pval[2]);
-//	    	  
-//	    	  sum_count += count;
-//	    	  sum_wgt += count*wgt;
-//	    	  
-//	    	  
-//	      }
-//	      
-//	      if (sum_count > 0)
-//	      {
-//		      avg = sum_wgt/sum_count;
-//		      result.set(String.valueOf(avg));
-//		      context.write(key, result); // create a pair <keyword, number of occurences>
-//	      }
-//
-//	    }
-		  
+
 //		  	double wgt;
 //	    	int count;
 //	    	double error;
@@ -1002,196 +681,7 @@ public class senti_classify
 	  }
 
 
-	  public static class Reduce_Training2 extends Reducer<Text,Text,Text,Text>
-	  {
-
-//	    private IntWritable result = new IntWritable();
-//
-//	    public static final String SLAVES_COUNTER_NAME = "Groups";
-//
-//	    public void reduce(Text key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException
-//	    {
-//	      int sum = 0; // initialize the sum for each keyword => outputvalue
-//	      			  // resuse key of mapper output
-//
-//	      for (IntWritable val : values)
-//	      {
-//	        sum += val.get();
-//	      }
-//	      result.set(sum);
-//
-//	      context.write(key, result); // create a pair <keyword, number of occurences>
-//
-//
-//	    }
-		  
-		  
-		  
-	    
-//		private Text result = new Text();
-//	    public static final String SLAVES_COUNTER_NAME = "Groups";
-//
-//	    public void reduce(Text key,  Iterable<Text> values, Context context) throws IOException, InterruptedException
-//	    {
-//	    	  
-////		initialize the sum for each keyword => outputvalue
-////	    resuse key of mapper output
-//	    	double wgt;
-//	    	int count;
-//	    	double error;
-//	    	double sum_count = 0;
-//	    	double sum_wgt = 0;
-//	    	double avg = 0;
-//	      for (Text val : values)
-//	      {
-//	    	  String [] pval = val.toString().split("_");
-//	    	  if (pval.length <= 1)
-//	    	  {
-//						while (context.nextKeyValue())
-//						{
-//							sum_count = 0;
-//						}
-//						return;
-//	    	  }
-//	    		  
-//	    	  
-//	    	  count = Integer.valueOf(pval[0]);
-//	    	  wgt = Double.valueOf(pval[1]);
-//	    	  error = Double.valueOf(pval[2]);
-//	    	  
-//	    	  sum_count += count;
-//	    	  sum_wgt += count*wgt;
-//	    	  
-//	    	  
-//	      }
-//	      
-//	      if (sum_count > 0)
-//	      {
-//		      avg = sum_wgt/sum_count;
-//		      result.set(String.valueOf(avg));
-//		      context.write(key, result); // create a pair <keyword, number of occurences>
-//	      }
-//
-//	    }
-		  
-//		  	double wgt;
-//	    	int count;
-//	    	double error;
-//	    	double sum_count = 0;
-//	    	double sum_wgt = 0;
-//	    	double avg = 0;
-//	    	String avg_str;
-	    	Boolean has_key = true;
-	    
-	        private Text rkey = new Text();
-			private Text result = new Text();
-		    public static final String SLAVES_COUNTER_NAME = "Groups";
-
-		    public void reduce(Text key,  Iterable<Text> values, Context context) throws IOException, InterruptedException
-		    { 
-		    	double wgt;
-		    	int count;
-		    	double error = 0;
-		    	double bias = 0;
-		    	double sum_bias = 0;
-		    	double avg_bias = 0;
-		    	double sum_count = 0;
-		    	double sum_wgt = 0;
-		    	double avg_wgt = 0;
-		    	String avg__wgt_str;
-		    	String avg_bias_str;
-		    	
-//		    	while (has_key == true)
-//		    	{
-		    	
-		    	int xyz = 0;
-		    	
-		    	rkey.set(key.toString());
-		    	
-		    	ArrayList<Text> cache = new ArrayList<Text>(); //need to cache object, not value
-		    	int i = 0;
-		    	
-		    	String m_result = "";
-		    	
-			      for (Text val : values)
-			      {
-			    	  cache.add(val);
-			    	  i++;
-			    	  
-//			    	  m_result = val.toString();
-			    	  m_result = cache.get(i-1).toString();
-			    	  
-			    	  String [] pval = m_result.split("_");
-			    	  
-//			    	  if (pval.length <= 1)
-//			    	  {
-//								while (context.nextKeyValue())
-//								{
-//									xyz++;
-//								}
-//								return;
-//			    	  }
-		    		  
-			    	  if (pval.length > 2)
-			    	  {
-				    	  count = Integer.valueOf(pval[0]);
-				    	  wgt = Double.valueOf(pval[1]);
-				    	  error = Double.valueOf(pval[2]);
-				    	  bias = Double.valueOf(pval[3]);
-				    	  
-				    	  sum_count += count;
-				    	  sum_wgt += count*wgt;
-				    	  sum_bias += count*bias;
-				    	  
-//				    	  avg = sum_wgt/sum_count;
-//				    	  avg_str = String.valueOf(avg).substring(0, 10);
-//				    	  result.set(avg_str);
-//				    	  context.write(key, result);
-//				    	  context.write(key, new Text("abc"));
-			    	  }
-			    	  else
-			    	  {
-			    		  xyz++;
-			    		  
-			    		  
-			    	  }
-			    	  
-			    	  
-			      }
-			      
-			      if (sum_count > 0)
-			      {
-			    	  avg_bias = sum_bias/sum_count;
-				      avg_wgt = sum_wgt/sum_count;
-				      avg__wgt_str = String.valueOf(avg_wgt);
-				      avg_bias_str = String.valueOf(bias);
-				      result.set(avg__wgt_str + "_" + avg_bias_str);
-				      System.out.println("Reduce: " + rkey.toString() + "  " + result.toString());// + "  " + String.valueOf(error));
-				      System.out.println(xyz);
-//				      context.write(key, result);
-			      }	    	
-
-		    	
-
-//			  context.write(key, new Text(String.valueOf(sum_count) + "_")); // create a pair <keyword, number of occurences>  
-			  context.write(rkey, result);
-//			  context.write(key, new Text("abc"));
-			  //context.write(key, new Text("___" + avg_str));
-//		      context.write(key, new Text(m_result.substring(0, 3))); // create a pair <keyword, number of occurences>
-//		      if (xyz < 0)
-			  context.write(key, new Text(m_result));
-//			  context.write(NullWritable.get(), NullWritable.get());
-		      //context.write(key, result); // create a pair <keyword, number of occurences>
-			  
-//			  has_key = context.nextKey();
-//		    	}
-		      
-		    }
-	    	    	    	    	   	    
-	  }
-
-
-
+	
 
 
 
@@ -1224,34 +714,12 @@ public class senti_classify
 	        
 	    // set the HDFS path
 	    
-//	    FileSystem fs = FileSystem.get(conf);
-//	    inPath_temp_1 = new Path(otherArgs[otherArgs.length-4]+ "_tmp_1"); 
-//	    inPath_temp_2 = new Path(otherArgs[otherArgs.length-4]+ "_tmp_2");
-//	    Path Path_temp = inPath_temp_1.getParent();
-	    
-//	    String input_string = fs.getWorkingDirectory().toString().split(":")[1]; //for local mode and debug
-////		String [] input_array = input_string.split("[/]");
-////		input_string = "";
-////		for (int i=1; i< input_array.length-1; i++) 
-////		{
-////			input_string += input_array[i] + "/";
-////		}
-//		//for local mode and debug
-//		inPath_temp_1 = new Path("_temp1");
-//		inPath_temp_2 = new Path("_temp2");
 		
 	    String input_string2 = otherArgs[otherArgs.length-3];
 		String input_string = otherArgs[otherArgs.length-4];
 		inPath = new Path(input_string);
 		
-//		String input_string2 = otherArgs[otherArgs.length-3];
-		
-//		String [] input_array = input_string.split("[/]");
-//		input_string = "";
-//		for (int i=1; i< input_array.length-1; i++)
-//		{
-//			input_string += "/" + input_array[i];
-//		}
+
 		
 		String [] input_array = input_string.split(".txt");
 		input_string = input_array[0];
@@ -1496,43 +964,7 @@ public class senti_classify
 	  //
 	  public static class Map_Testing extends Mapper<LongWritable, Text, Text, Text>
 	  {
-//		//Network parameters
-//			private static double		learningRate = 0.1;
-//			private static double		momentum = 0.0;
-//			private static  double		sigmoidAlphaValue = 2.0;
-//			private static double		learningErrorLimit = 0.1;
-//			private static int			sigmoidType = 0;
-//
-//			
-//			private static int inputsCount = 5; //input for first layer
-//			private static int [] neuronsCount = {5,5,2}; //layersCount = neuronsCount.length; previous layer is input for next layer
-//			private static double [][][] weights = {{},{},{}}; //store weight for 2nd epock, and for testing
-//			private static double [][][] biases = {{},{},{}};
-//		  	
-//		  ActivationNetwork network;
-//		  BackPropagationLearning tester;
-////		  ActivationNetwork network = new ActivationNetwork (new SigmoidFunction(sigmoidAlphaValue), inputsCount, neuronsCount, weights); //use constructor for training (withou pre-set weights)
-////		  BackPropagationLearning tester = new BackPropagationLearning( network, learningRate, momentum);
-//
-//			//prepare mapper output
-////		    private final static IntWritable one = new IntWritable(1); // type of output value
-////		    private Text word = new Text();   // type of output key
-//		    
-//			private Text out_key = new Text();
-//		    private Text out_val = new Text();
-//		    
-//		    double error = learningErrorLimit;
-//		    ArrayList errorsList = new ArrayList( );
-//		    int count = 0;
-//		    Boolean cont = true;
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    //////////////////////////////////////////////////////////////
+
 		    //////////////////////////////////////////////////////////////
 		  //Network parameters
 			private static double		learningRate = 0.1;
@@ -1584,23 +1016,7 @@ public class senti_classify
 				weights = new double [neuronsCount.length][dim_max][dim_max];
 		    	biases =  new double [neuronsCount.length][dim_max][dim_max]; 
 		    	
-//		    	input_string = context.getInputSplit().toString();
-//		    	input_string = temp_string;
-		    	
-//				String [] input_array = input_string.split("[/]");
-//				input_string = "";
-//				for (int i=1; i< input_array.length-1; i++)
-//				{
-//					input_string += "/" + input_array[i];
-//				}
-				
-//				String [] input_array = input_string.split(".txt");
-//				input_string = input_array[0];
-//		    	input_array = input_string.split("file:");
-//		    	if (input_array.length > 1)
-//		    	{
-//		    		input_string = input_array[1];
-//		    	}
+
 				
 		    	input_string = conf.get("temp_string");
 		    	
@@ -1612,21 +1028,7 @@ public class senti_classify
 				
 				fst = FileSystem.get(conf);
 				
-//				if(fst.exists(input_temp_1))
-//			    {
-//					common_path = new Path(input_string + "_temp1/part-r-00000");
-//					common_folder = new Path(input_string + "_temp1");
-//			    }
-//				else if (fst.exists(input_temp_2))
-//				{
-//					common_path = new Path(input_string + "_temp2/part-r-00000");
-//					common_folder = new Path(input_string + "_temp2");
-//				}
-//				else
-//				{
-//					network = new ActivationNetwork (new BipolarSigmoidFunction(sigmoidAlphaValue), inputsCount, neuronsCount); //use constructor for training (without pre-set weights)
-//					tester = new BackPropagationLearning( network, learningRate, momentum);
-//				}
+
 				
 				String odd = conf.get("epochs");
 				if (odd.equals("0"))
@@ -1672,29 +1074,7 @@ public class senti_classify
 									BufferedReader br=new BufferedReader(new InputStreamReader(fst.open(status.getPath())));	
 							
 							
-							
-		  					//READ ONE FILE
-//	                        Path pt= new Path("file:///home/cloudera/workspace/mre" + inPath_temp_2.toString());
-//		  					Path pt= new Path("input.txt");
-//		  					Path pt = new Path("part-r-00000");
-//		  					Path pt = new Path(inPath_temp_2.toString() + "/part-r-00000");
-//		  					Path pt = new Path(System.getProperty("user.dir") + "/output_tmp_2/part-r-00000");
-		  					
-//		  					Class cls = Class.forName("STC2");
-//		  				    ClassLoader cLoader = cls.getClassLoader();
-//		  					URL url = cLoader.getResource("part-r-00000");
-		  					
-		  					
-//	                        FileSystem fst = FileSystem.get(context.getConfiguration());
-//	                        FileSystem fst = FileSystem.get(new Configuration());
-//	                        String abc = System.getProperty("user.dir");
-//	                        File file = new File(System.getProperty("user.dir") + "/output_tmp_2/part-r-00000");
-	                        
-//	                        BufferedReader br = new BufferedReader(new InputStreamReader(fst.open(common_path)));	
-//	                        String file_name = System.getProperty("user.dir") + "/" + inPath_temp_2.toString() + "/part-r-00000";
-//	                        BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.dir") + "/" + inPath_temp_2.toString() + "/part-r-00000"));
-//	                        BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.dir") + "/part-r-00000"));
-	                        
+                  
 	                     
 						            String line;
 			                        line=br.readLine();
@@ -1799,7 +1179,7 @@ public class senti_classify
 		        }
 		     }
 		    
-		    /////////////////////////////////////////////////////////////
+
 		    /////////////////////////////////////////////////////////////
 		    
 		    	      
@@ -1821,151 +1201,7 @@ public class senti_classify
 		    //read sub data file (smaller than default hadoop block size) => then calculate independently (parallel)
 		    public void map (LongWritable key, Text value, Context context) throws IOException, InterruptedException
 		    {
-//		    	//initialize weight strorage for network
-//				int dim_max = inputsCount;
-//				for (int i=0; i < neuronsCount.length; i++)
-//				{
-//					if (neuronsCount[i] > dim_max)
-//						dim_max = neuronsCount[i];
-//				}
-//				weights = new double [neuronsCount.length][dim_max][dim_max];
-//				biases = new double [neuronsCount.length][dim_max][dim_max];  
-//		    	
-//		    	if (iteration >= 1)
-//			  	{
-//		    		
-//					
-//			  		if (path_index == 2)
-//			  		{
-//			  			try
-//			  			{
-////		                        Path pt= new Path("file:///home/cloudera/workspace/mre" + inPath_temp_2.toString());
-////			  					Path pt= new Path("input.txt");
-////			  					Path pt = new Path("part-r-00000");
-//			  					Path pt = new Path(inPath_temp_2.toString() + "/part-r-00000");
-////			  					Path pt = new Path(System.getProperty("user.dir") + "/output_tmp_2/part-r-00000");
-//			  					
-////			  					Class cls = Class.forName("STC2");
-////			  				    ClassLoader cLoader = cls.getClassLoader();
-////			  					URL url = cLoader.getResource("part-r-00000");
-//			  					
-//			  					
-//		                        FileSystem fst = FileSystem.get(context.getConfiguration());
-////		                        FileSystem fst = FileSystem.get(new Configuration());
-////		                        String abc = System.getProperty("user.dir");
-////		                        File file = new File(System.getProperty("user.dir") + "/output_tmp_2/part-r-00000");
-//		                        
-//		                        BufferedReader br=new BufferedReader(new InputStreamReader(fst.open(pt)));		                        
-////		                        BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.dir") + "/" + inPath_temp_2.toString() + "/part-r-00000"));
-////		                        BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.dir") + "/part-r-00000"));
-//		                        
-//		                        
-//		                        String line;
-//		                        line=br.readLine();
-//		                        
-//		                        while (line != null)
-//		                        {	
-//		                        	String [] str_line = line.split("\t");
-//		                        	String [] str_index = str_line[0].split("_");
-//		                        	String [] str_kval =  str_line[1].split("_");
-//		                        	
-//		                        	int layer = Integer.valueOf(str_index[1]);
-//		                        	int neuron = Integer.valueOf(str_index[2]);
-//		                        	int wi = Integer.valueOf(str_index[3]);
-//		                        	double wgt = Double.valueOf(str_kval[0]);
-//		                        	double bias = Double.valueOf(str_kval[1]);
-//			                        
-//		                        	weights[layer][neuron][wi] = wgt;
-//		                        	biases[layer][neuron][wi] = bias;
-//		                        	
-//		                        	System.out.println("Testing ReadIn from 2: " + line);
-//		                            line=br.readLine();
-//		                            line=br.readLine();
-//		                        }
-//			  			}
-//			  			catch(Exception e)
-//			            {
-//			  				
-//			            }
-//			  		//initialize slave network
-////					network = new ActivationNetwork (new SigmoidFunction(sigmoidAlphaValue), inputsCount, neuronsCount, weights, biases); //use constructor for training (withou pre-set weights)
-//					network = new ActivationNetwork (new BipolarSigmoidFunction(sigmoidAlphaValue), inputsCount, neuronsCount, weights, biases); //use constructor for training (withou pre-set weights)
-//					tester = new BackPropagationLearning( network, learningRate, momentum);
-//			  			
-//			  		}
-//			  		else
-//			  		{
-//			  			try
-//			  			{
-////			  				Path pt= new Path("file:///home/cloudera/workspace/mre" + inPath_temp_1.toString());
-////		  					Path pt= new Path("input.txt");
-////		  					Path pt = new Path("part-r-00000");
-//		  					Path pt = new Path(inPath_temp_1.toString() + "/part-r-00000");
-////		  					Path pt = new Path(System.getProperty("user.dir") + "/output_tmp_1/part-r-00000");
-//		  					
-////		  					Class cls = Class.forName("STC2");
-////		  				    ClassLoader cLoader = cls.getClassLoader();
-////		  					URL url = cLoader.getResource("part-r-00000");
-//		  					
-//		  					
-//	                        FileSystem fst = FileSystem.get(context.getConfiguration());
-////	                        FileSystem fst = FileSystem.get(new Configuration());
-////	                        String abc = System.getProperty("user.dir");
-////	                        File file = new File(System.getProperty("user.dir") + "/output_tmp_1/part-r-00000");
-//	                        
-//	                        BufferedReader br=new BufferedReader(new InputStreamReader(fst.open(pt)));		                        
-////	                        BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.dir") + "/" + inPath_temp_1.toString() + "/part-r-00000"));
-////	                        BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.dir") + "/part-r-00000"));
-//	                        
-//	                        
-//	                        String line;
-//	                        line=br.readLine();
-//	                        
-//	                        while (line != null)
-//	                        {	
-//	                        	String [] str_line = line.split("\t");
-//	                        	String [] str_index = str_line[0].split("_");
-//	                        	String [] str_kval =  str_line[1].split("_");
-//	                        	
-//	                        	int layer = Integer.valueOf(str_index[1]);
-//	                        	int neuron = Integer.valueOf(str_index[2]);
-//	                        	int wi = Integer.valueOf(str_index[3]);
-//	                        	double wgt = Double.valueOf(str_kval[0]);
-//	                        	double bias = Double.valueOf(str_kval[1]);
-//		                        
-//	                        	weights[layer][neuron][wi] = wgt;
-//	                        	biases[layer][neuron][wi] = bias;
-//	                        	
-//	                        	System.out.println("Testing ReadIn from 1: " + line);
-//	                            line=br.readLine();
-//	                            line=br.readLine();
-//	                        }
-//	                        
-//	                        
-//			  			}
-//			  			catch(Exception e)
-//			            {
-//			  				
-//			            }
-//			  			
-//			  		//initialize slave network
-////					network = new ActivationNetwork (new SigmoidFunction(sigmoidAlphaValue), inputsCount, neuronsCount, weights, biases); //use constructor for training (withou pre-set weights)
-//					network = new ActivationNetwork (new BipolarSigmoidFunction(sigmoidAlphaValue), inputsCount, neuronsCount, weights, biases); //use constructor for training (withou pre-set weights)
-//					tester = new BackPropagationLearning( network, learningRate, momentum);
-//			  		}
-//			  	}
-//		    	else
-//		    	{
-//		    		//initialize slave network with random weights
-////					network = new ActivationNetwork (new SigmoidFunction(sigmoidAlphaValue), inputsCount, neuronsCount); //use constructor for training (withou pre-set weights)
-//					network = new ActivationNetwork (new BipolarSigmoidFunction(sigmoidAlphaValue), inputsCount, neuronsCount); //use constructor for training (withou pre-set weights)
-//					tester = new BackPropagationLearning( network, learningRate, momentum);
-//		    	}
-					
-				
-		    	
-//		    	while (cont)
-//		    	{
+
 		    	// each time, mapper read 1 line of csv file content
 		    		String [] pval = value.toString().trim().split("[ \t]+");
 //			      String [] pval = value.toString().split("\t");			      
@@ -2119,159 +1355,7 @@ public class senti_classify
 						
 						
 						
-//						if (computed_output > 0.05)
-//						{
-//							if (ideal_output == 1)
-//							{
-//								long cter = context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, TPO_PPO_COUNTER).getValue();
-//								context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, TPO_PPO_COUNTER).increment(1);
-//								cter = context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, TPO_PPO_COUNTER).getValue();
-//								class_result = "True PO_Predict PO";
-//								System.out.println(class_result + ": " + cter);
-//								
-//							}
-//							else if (ideal_output == 0)
-//							{
-//								long cter = context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, TNU_PPO_COUNTER).getValue();
-//								context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, TNU_PPO_COUNTER).increment(1);
-//								cter = context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, TNU_PPO_COUNTER).getValue();
-//								class_result = "True NU_Predict PO";
-//								System.out.println(class_result + ": " + cter);
-//							}
-//							else
-//							{
-//								long cter = context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, TNG_PPO_COUNTER).getValue();
-//								context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, TNG_PPO_COUNTER).increment(1);
-//								cter = context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, TNG_PPO_COUNTER).getValue();
-//								class_result = "True NG_Predict PO";
-//								System.out.println(class_result + ": " + cter);
-//							}
-//						}
-//						else if (computed_output < -0.05)
-//						{
-//							if (ideal_output == 1)
-//							{
-//								long cter = context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, TPO_PNG_COUNTER).getValue();
-//								context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, TPO_PNG_COUNTER).increment(1);
-//								cter = context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, TPO_PNG_COUNTER).getValue();
-//								class_result = "True PO_Predict NG";
-//								System.out.println(class_result + ": " + cter);
-//								
-//							}
-//							else if (ideal_output == 0)
-//							{
-//								long cter = context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, TNU_PNG_COUNTER).getValue();
-//								context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, TNU_PNG_COUNTER).increment(1);
-//								cter = context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, TNU_PNG_COUNTER).getValue();
-//								class_result = "True NU_Predict NG";
-//								System.out.println(class_result + ": " + cter);
-//							}
-//							else
-//							{
-//								long cter = context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, TNG_PNG_COUNTER).getValue();
-//								context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, TNG_PNG_COUNTER).increment(1);
-//								cter = context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, TNG_PNG_COUNTER).getValue();
-//								class_result = "True NG_Predict NG";
-//								System.out.println(class_result + ": " + cter);
-//							}
-//						}
-//						else
-//						{
-//							if (ideal_output == 1)
-//							{
-//								long cter = context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, TPO_PNU_COUNTER).getValue();
-//								context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, TPO_PNU_COUNTER).increment(1);
-//								cter = context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, TPO_PNU_COUNTER).getValue();
-//								class_result = "True PO_Predict NU";
-//								System.out.println(class_result + ": " + cter);
-//								
-//							}
-//							else if (ideal_output == 0)
-//							{
-//								long cter = context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, TNU_PNU_COUNTER).getValue();
-//								context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, TNU_PNU_COUNTER).increment(1);
-//								cter = context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, TNU_PNU_COUNTER).getValue();
-//								class_result = "True NU_Predict NU";
-//								System.out.println(class_result + ": " + cter);
-//							}
-//							else
-//							{
-//								long cter = context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, TNG_PNU_COUNTER).getValue();
-//								context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, TNG_PNU_COUNTER).increment(1);
-//								cter = context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, TNG_PNU_COUNTER).getValue();
-//								class_result = "True NG_Predict NU";
-//								System.out.println(class_result + ": " + cter);
-//							}
-//						}
-						
-						
-						
-						
-//						if (ideal_output == 1)
-//						{
-//							if (computed_output > 0.2)
-//							{
-//								long c1 = context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, TRUE_POSITIVE_COUNTER_NAME).getValue();
-//								context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, TRUE_POSITIVE_COUNTER_NAME).increment(1);
-//								c1 = context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, TRUE_POSITIVE_COUNTER_NAME).getValue();
-//								System.out.println("True Positive: " + c1);
-//								class_result = "True Positive";
-//								
-//								
-//								
-//								
-//							}
-//							else
-//							{
-//								long c2 = context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, FALSE_POSITIVE_COUNTER_NAME).getValue();
-//								context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, FALSE_POSITIVE_COUNTER_NAME).increment(1);
-//								c2 = context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, FALSE_POSITIVE_COUNTER_NAME).getValue();
-//								System.out.println("False Positive: " + c2);
-//								class_result = "False Positive";
-//							}
-//						}
-//						else if (ideal_output == 0)
-//						{
-//							if (computed_output <= 0.2 && computed_output >= -0.2)
-//							{
-//								long c3 = context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, TRUE_NEUTRAL_COUNTER_NAME).getValue();
-//								context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, TRUE_NEUTRAL_COUNTER_NAME).increment(1);
-//								c3 = context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, TRUE_NEUTRAL_COUNTER_NAME).getValue();
-//								System.out.println("True Neutral: " + c3);
-//								class_result = "True Neutral";
-//								
-//								
-//								
-//							}
-//							else
-//							{
-//								long c4 = context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, FALSE_NEUTRAL_COUNTER_NAME).getValue();
-//								context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, FALSE_NEUTRAL_COUNTER_NAME).increment(1);
-//								c4 = context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, FALSE_NEUTRAL_COUNTER_NAME).getValue();
-//								System.out.println("False Positive: " + c4);
-//								class_result = "False Neutral";
-//							}
-//						}
-//						else
-//						{
-//							if (computed_output <= -0.2)
-//							{
-//								
-//								long c5 = context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, TRUE_NEGATIVE_COUNTER_NAME).getValue();
-//								context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, TRUE_NEGATIVE_COUNTER_NAME).increment(1);
-//								c5 = context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, TRUE_NEGATIVE_COUNTER_NAME).getValue();
-//								System.out.println("True Negative: " + c5);
-//								class_result = "True Negative";
-//							}
-//							else
-//							{
-//								long c6 = context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, FALSE_NEGATIVE_COUNTER_NAME).getValue();
-//								context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, FALSE_NEGATIVE_COUNTER_NAME).increment(1);
-//								c6 = context.getCounter(CONFUSION_MATRIX_COUNTER_GROUP, FALSE_NEGATIVE_COUNTER_NAME).getValue();
-//								System.out.println("False Negative: " + c6);
-//								class_result = "False Negative";
-//							}
-//						}
+
 						
 						String ktext = String.valueOf(count);
 						out_key.set(ktext);
@@ -2304,31 +1388,7 @@ public class senti_classify
 		    	
 		    	
 		    	
-//		    	for (int i=0, l=network.layersCount; i<l; i++)
-//				{
-//					for (int j=0, n=network.layers[i].neuronsCount; j<n; j++)
-//														
-//					{
-//						for (int k=0, w=network.layers[i].neurons[j].inputsCount; k<w; k++)
-//						{
-//
-//							double wgt = network.layers[i].neurons[j].weights[k];
-//							String vtext = String.valueOf(count) + "_" + String.valueOf(wgt) + "_" + String.valueOf(error);
-//							out_val.set(vtext);
-//							
-////							String ktext = String.valueOf(c2) + "_" + String.valueOf(i) + "_" + String.valueOf(j);
-//							String ktext = "w_" + String.valueOf(i) + "_" + String.valueOf(j) + "_" + String.valueOf(k);
-//							out_key.set(ktext);
-//							
-//							context.write(out_key, out_val);
-//							System.out.println("Map: " + ktext + "  " + vtext);
-//							
-//						}
-//						
-//						
-//					}
-//					
-//				}
+
 
 
 		    } //end map function
