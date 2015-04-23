@@ -1,3 +1,9 @@
+// AForge Neural Net Library
+//
+// Copyright © Andrew Kirillov, 2005-2006
+// andrew.kirillov@gmail.com
+//
+
 package neuro.core;
 
 /// <summary>
