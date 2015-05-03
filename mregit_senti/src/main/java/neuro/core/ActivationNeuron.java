@@ -3,6 +3,7 @@
 // Copyright © Andrew Kirillov, 2005-2006
 // andrew.kirillov@gmail.com
 //
+// GPL3
 
 package neuro.core;
 
