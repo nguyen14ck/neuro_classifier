@@ -1,5 +1,5 @@
 # CLASSIFIER PROGRAM
-#
+##
 
 # FILES & PACKAGES
 
@@ -71,7 +71,7 @@
 		ActivationNetwork - implementation of Network abstract class
 		
 		IActivationFunction - activation function's interface
-		Sigmoid - implementation IActivationFunction
+		Sigmoid - implementation of IActivationFunction
 		BipolarSigmoid - implementation of IActivationFunction
 		
 		IUnsupervisedLearning - interface for unsupervised learning algorithms 
@@ -100,10 +100,15 @@ This network has following configuration:
 	+ input vector: 5 dimensions (this vector is extracted from the previous linguistic program)
 	  first 5 numbers are for input, 3 last numbers are ground truth (for training, and for testing purpose)
 	  each column indicates:
+	  
 	 (1):	positive scores
+	 
 	 (2):	negative scores
+	 
 	 (3):	number of positive sentences
+	 
 	 (4):	number of negative sentences
+	 
 	 (5):	scores of summary text
 
 	If review/score >= 4, this review is positive. If review/score <= 2, it's negative.
@@ -111,7 +116,9 @@ This network has following configuration:
 	columns 6-8 are target values, prepared in different forms for different applications.
 
 	 (6):	ground truth_ 1 if positive, 0 if negative
+	 
 	 (7):	ground truth_ 0 if positive, 1 if negative
+	 
 	 (8): 	ground truth_ 1 if positive, -1 if negative
 
 Because classification process needs validation, dataset will be split into 3 equal parts. For each runs, 2 parts are used for input data, and the remaining part as testing data.
